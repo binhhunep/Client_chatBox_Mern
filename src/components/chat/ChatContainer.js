@@ -32,7 +32,7 @@ function ChatContainer({ socket }) {
   const [isStart, setIsStart] = useState(false);
 
   const [messages, setMessages] = useState([]);
-  const [receiveMessage, setReceiveMessage] = useState();
+  const [receiveMsg, setReceiveMsg] = useState();
   const [reset, setReset] = useState(false);
 
   useEffect(() => {
@@ -73,6 +73,7 @@ function ChatContainer({ socket }) {
     }); //gui tin nhan xuong server
     const currentMessages = [...messages];
     currentMessages.push({ fromSeft: true, message: msg });
+    setMessages(currentMessages);
     await messageApi.addMessage({
       from: idObject,
       to: user._id,
@@ -90,7 +91,7 @@ function ChatContainer({ socket }) {
   useEffect(() => {
     if (socket.current) {
       socket.current.on("server-msg-recieve-client", (msg) => {
-        setReceiveMessage(msg);
+        setReceiveMsg(msg);
       });
     }
   }, []);
@@ -155,7 +156,7 @@ function ChatContainer({ socket }) {
                     </div>
                   );
                 } else {
-                  return <ReceiveMsg key={index} msg={data.message} />;
+                  return <ReceiveMsg key={index} msg={receiveMsg} />;
                 }
               })}
           </div>
