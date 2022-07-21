@@ -1,0 +1,61 @@
+//loginForm
+
+@mixin login-form {
+  max-width: 250px;
+  text-align: start;
+}
+@mixin loginForm-remember {
+  color: white;
+}
+
+@mixin login-input {
+}
+
+@mixin login-button {
+  width: 100%;
+}
+
+@mixin login-title {
+  text-align: center;
+  background: -webkit-linear-gradient(#ffd200, #ffe980);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin login-avatar {
+  background-image: url("../../assets/images/avatar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: -10px;
+  margin-left: 32%;
+}
+
+@mixin container {
+  padding: 8% 40%;
+  background-image: url("../../assets/images/background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+//Avatar
+
+@mixin avatar {
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+@mixin loading {
+  background-image: url("../../assets/images/loading.gif");
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+}
