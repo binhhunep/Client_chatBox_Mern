@@ -91,8 +91,8 @@ function ChatContainer({ socket }) {
   useEffect(() => {
     if (socket.current) {
       socket.current.on("server-msg-receive-client", (msg) => {
-        setReceiveMsg(msg);
         console.log(msg);
+        setReceiveMsg(msg);
       });
     }
   }, [reset]);
