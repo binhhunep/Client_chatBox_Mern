@@ -44,7 +44,7 @@ function ChatContainer({ socket }) {
       setMessages(data.data);
     };
     fetchData().catch(console.error);
-  }, [user]);
+  }, [user, reset]);
 
   const handleUserClick = (user) => {
     setUser({ username: user.username, avatar: user.avatar, _id: user._id });
@@ -160,7 +160,6 @@ function ChatContainer({ socket }) {
                   return <ReceiveMsg key={index} msg={data.message} />;
                 }
               })}
-
             {receiveMsg ? <ReceiveMsg msg={receiveMsg} /> : ""}
           </div>
           <div className={styles.container_chatContainer_bottom}>
